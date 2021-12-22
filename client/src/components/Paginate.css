@@ -1,0 +1,21 @@
+.pagination {
+    display: inline-block;
+    
+    
+    
+  }
+.pagination a {
+    color:white;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 9999px;
+    margin-left: 2rem;
+  }
+.pagination :hover{
+    background-color: white;
+    color: black;
+    
+  }
+  
+  

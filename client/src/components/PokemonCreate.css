@@ -1,0 +1,119 @@
+.create{
+    height : 100vh;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    height: 75%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+}
+.divData{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem
+}
+.divForm{
+    width: 100%;
+    height: 100%;
+}
+.form{
+    width: 100%;
+    height: 100%;
+}
+.divBtnCreate{
+    width: auto;
+    height: 10%;
+    padding-left: 3%;
+    display: flex;
+    align-items: flex-end;
+    
+}
+.btnBackCreate{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #edf2f4;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color:#1d3557;
+    border: 1px solid transparent;
+    padding: 0.175rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+.midInfCreate{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+.divImages{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+.divName{
+    display: flex;
+    justify-content: center;
+}
+.midLeft{
+    width: 75%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+   justify-content: flex-start;
+    /* gap: 2.5rem; */
+}
+.midRight{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+   justify-content: flex-start;
+   gap: 3rem;
+   
+
+}
+.btnCreate{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: #ffba08;
+    border: 1px solid transparent;
+    padding: 0.175rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+#controled{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    height: 10%
+}
+#controlerColor{
+    color: crimson;
+}
