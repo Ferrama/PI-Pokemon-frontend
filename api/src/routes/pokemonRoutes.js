@@ -1,18 +1,10 @@
 const { Router } = require("express");
-
 const axios = require("axios");
 const { Pokemons, Types } = require("../db");
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
+
 const {
-  getApiInfo,
-  getDbInfo,
   getAllPokemons,
-  getPokemonId,
-  getDbInfoId,
   getAllPokemonsId,
-  getPokemonName,
-  getDbInfoName,
   getAllPokemonsName,
 } = require("../functions.js/index");
 
@@ -64,7 +56,7 @@ router.post("/", async (req, res, next) => {
     speed,
   } = req.body;
   const nameString = name.toString().toLocaleLowerCase();
-  //crear pokemon
+
   let newPokemon = await Pokemons.create({
     name: nameString,
     imageCard,
@@ -81,11 +73,11 @@ router.post("/", async (req, res, next) => {
   let typesDb = await Types.findAll({
     where: { name: types },
   });
-  //console.log(typesDb)
+
   const typeMap = typesDb.map((e) => e.dataValues.id);
 
   newPokemon.addTypes(typeMap);
-  //agregar tipos al pokemon creado
+
   res.send(newPokemon);
 });
 

@@ -32,7 +32,7 @@ export default function PokemonCreate(props) {
   const dispatch = useDispatch();
 
   const types = useSelector((state) => state.types);
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState([{
     name: "Required name",
     imageCard: "Required Image Card",
     imageDetail: "Required Image Detail",
@@ -44,7 +44,7 @@ export default function PokemonCreate(props) {
     attack: "Required Attack",
     speed: "Required Speed",
     defense: "Required Defense",
-  });
+  }]);
   const [input, setInput] = useState({
     name: "",
     imageCard: "",

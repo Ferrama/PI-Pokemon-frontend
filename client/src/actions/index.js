@@ -3,7 +3,7 @@ import axios from "axios";
 export function getPokemons() {
   return async function (dispatch) {
     var json = await axios.get("http://localhost:3001/pokemons");
-    
+
     return dispatch({
       type: "GET_POKEMONS",
       payload: json.data,
@@ -24,7 +24,6 @@ export function getPokemonName(name) {
   };
 }
 export function filterPokemonByStatus(payload) {
-  //console.log(payload)
   return {
     type: "FILTER_BY_STATUS",
     payload,
@@ -59,28 +58,20 @@ export function getTypes(name) {
 }
 export function postPokemon(payload) {
   return async function (dispatch) {
-    var json = await axios.post(`http://localhost:3001/pokemons`,payload);
-    return json
+    var json = await axios.post(`http://localhost:3001/pokemons`, payload);
+    return json;
   };
 }
 export function getDetail(id) {
   return async function (dispatch) {
-    try{
-    var json = await axios.get(`http://localhost:3001/pokemons/${id}`);
-    return dispatch({
-      type : "GET_DETAILS",
-      payload : json.data,
-    })
-    } catch(e){
-      console.log(e)
+    try {
+      var json = await axios.get(`http://localhost:3001/pokemons/${id}`);
+      return dispatch({
+        type: "GET_DETAILS",
+        payload: json.data,
+      });
+    } catch (e) {
+      console.log(e);
     }
-  };
-  
-}
-export function filterPokemonByTypesSearch(payload) {
-  
-  return {
-    type: "FILTER_BY_TYPE_SEARCH",
-    payload,
   };
 }

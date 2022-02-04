@@ -37,7 +37,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(getPokemons());
     dispatch(getTypes());
-  }, [dispatch]); // SE PASA EL ARRAY PARA NO TENER LOOP INFINITO, CUANDO TENES DEPENDENCIAS
+  }, [dispatch]); 
 
   function handleClick(e) {
     e.preventDefault();

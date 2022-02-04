@@ -48,7 +48,8 @@ const getApiInfo = async () => {
   });
 
   return pokemonFilter;
-}; //promise trae datos api
+};
+getApiInfo();
 const getDbInfo = async () => {
   const pokemonDb = await Pokemons.findAll({
     include: {
@@ -102,11 +103,11 @@ const getPokemonId = async (id) => {
     baseExp: pokemonFilter["base_experience"],
     exist: true,
     hp: pokemonFilter.stats[0]["base_stat"],
-      attack: pokemonFilter.stats[1]["base_stat"],
-      defense: pokemonFilter.stats[2]["base_stat"],
-      speed: pokemonFilter.stats[5]["base_stat"],
+    attack: pokemonFilter.stats[1]["base_stat"],
+    defense: pokemonFilter.stats[2]["base_stat"],
+    speed: pokemonFilter.stats[5]["base_stat"],
   };
-  //console.log(pokemon)
+
   return pokemon;
 };
 
@@ -115,7 +116,6 @@ const getDbInfoId = async (id) => {
     include: Types,
   });
 
-  // let pokemonDbFilter = pokemonDb.filter((e) => e.dataValues.id === id);
   const pokemonDbDestruc = {
     id: pokemonDb.dataValues.id,
     name: pokemonDb.name,
@@ -127,24 +127,22 @@ const getDbInfoId = async (id) => {
     types: pokemonDb.types.map((e) => e.name),
     created: true,
     hp: pokemonDb.hp,
-      attack: pokemonDb.attack,
-      defense: pokemonDb.defense,
-      speed: pokemonDb.speed,
+    attack: pokemonDb.attack,
+    defense: pokemonDb.defense,
+    speed: pokemonDb.speed,
   };
-  //console.log(pokemonDbDestruc)
+
   return pokemonDbDestruc;
 };
 
 const getAllPokemonsId = async (id) => {
   const idString = id.toString();
-  // console.log(idString);
+
   if (idString.length > 6) {
-    //console.log('entre mayor')
     const dbInfo = await getDbInfoId(id);
     return dbInfo;
   }
   if (idString.length < 6) {
-    //console.log('entre menor')
     const apiInfo = await getPokemonId(id);
     return apiInfo;
   }
@@ -168,9 +166,9 @@ const getPokemonName = async (name) => {
     baseExp: pokemonFilter["base_experience"],
     exist: true,
     hp: pokemonFilter.stats[0]["base_stat"],
-      attack: pokemonFilter.stats[1]["base_stat"],
-      defense: pokemonFilter.stats[2]["base_stat"],
-      speed: pokemonFilter.stats[5]["base_stat"],
+    attack: pokemonFilter.stats[1]["base_stat"],
+    defense: pokemonFilter.stats[2]["base_stat"],
+    speed: pokemonFilter.stats[5]["base_stat"],
   };
   return pokemon;
 };
@@ -183,13 +181,12 @@ const getDbInfoName = async (name) => {
       through: { attributes: [] },
     },
   });
-  //console.log(pokemonDb)
+
   let pokemonDbFilter = pokemonDb?.filter(
     (e) => e.dataValues.name === `${name}`
   );
-  //console.log(pokemonDbFilter);
+
   if (pokemonDbFilter.length >= 1) {
-    //console.log('entre')
     const pokemonDbDestruc = {
       id: pokemonDbFilter[0].dataValues.id,
       name: pokemonDbFilter[0].dataValues.name,
@@ -205,7 +202,7 @@ const getDbInfoName = async (name) => {
       defense: pokemonDbFilter[0].dataValues.defense,
       speed: pokemonDbFilter[0].dataValues.speed,
     };
-    //console.log(" linea 165", pokemonDbDestruc);
+
     return pokemonDbDestruc;
   } else return false;
 };

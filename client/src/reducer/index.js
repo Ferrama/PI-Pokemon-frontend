@@ -43,7 +43,7 @@ export default function rootReducer(state = inicialState, action) {
       };
 
     case "ORDER_BY_NAME":
-      console.log('reducer ',action.payload)
+      
       let sortedArray =
         action.payload === "asc"
           ? state.pokemons.sort((a, b) => {
@@ -98,7 +98,7 @@ export default function rootReducer(state = inicialState, action) {
        
       };
       case "FILTER_BY_TYPE_SEARCH":
-        console.log(' reducer',action.payload)
+        
        const allPokemons3 = state.allPokemons;
        const statusFilter3 = allPokemons3.filter((e) => e.types.includes(action.payload));
       return {
