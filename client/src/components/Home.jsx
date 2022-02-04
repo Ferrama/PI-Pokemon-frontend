@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginate from "./Paginate";
+import { MdRefresh } from "react-icons/md";
 
 import "./Home.css";
 
@@ -68,9 +69,7 @@ export default function Home() {
     setCurrrentPage(1);
     setOrden(`Ordenado ${e.target.value}`);
   }
-  // function handle(e) {
-
-  // }
+  
 
   return (
     <div>
@@ -81,7 +80,7 @@ export default function Home() {
           }}
           className="btnRefresh"
         >
-          Refresh Pokemons
+          <MdRefresh/>
         </button>
         <select
           className="formSelect"
