@@ -20,11 +20,14 @@ export function getPokemons() {
 }
 export function getPokemonName(name) {
   return async function (dispatch) {
+    
     try {
+      
       var json = await axios.get(`http://localhost:3001/pokemons?name=${name}`);
       return dispatch({
         type: "GET_POKEMONS_NAME",
         payload: json.data,
+        
       });
     } catch (e) {
       console.log(e);
@@ -47,6 +50,12 @@ export function orderByName(payload) {
   return {
     type: "ORDER_BY_NAME",
     payload,
+  };
+}
+export function resetDetail() {
+  return {
+    type: "RESET_DETAIL",
+    
   };
 }
 export function orderByWeight(payload) {

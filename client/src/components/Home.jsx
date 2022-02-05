@@ -13,16 +13,14 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginate from "./Paginate";
 import { MdRefresh } from "react-icons/md";
-import ReactLoading from 'react-loading';
+import ReactLoading from "react-loading";
 
 import "./Home.css";
 
-
-
 export default function Home() {
   const dispatch = useDispatch();
-  const allPokemons = useSelector((state) => state.pokemons); 
-  const isLoadingPokemons = useSelector((state) => state.isLoadingPokemons); 
+  const allPokemons = useSelector((state) => state.pokemons);
+  const isLoadingPokemons = useSelector((state) => state.isLoadingPokemons);
   const [orden, setOrden] = useState(""); ///
   const [currentPage, setCurrrentPage] = useState(1);
   const [pokemonsPerPage, setpokemonsPerPage] = useState(12);
@@ -32,17 +30,17 @@ export default function Home() {
     indexOfFirstPokemon,
     indexOfLastPokemon
   );
+
+  useEffect(() => {
+    
+    dispatch(getTypes());
+  }, [dispatch]);
+
   const types = useSelector((state) => state.types);
 
   const paginado = (pageNumber) => {
     setCurrrentPage(pageNumber);
   };
-
-  //COMPONENTEDIDMOUNT
-  useEffect(() => {
-    dispatch(getPokemons());
-    dispatch(getTypes());
-  }, [dispatch]); 
 
   function handleClick(e) {
     e.preventDefault();
@@ -57,14 +55,13 @@ export default function Home() {
     dispatch(filterPokemonByType(e.target.value));
     setCurrrentPage(1);
     setOrden(` ${e.target.value}`);
-    
   }
   function handleOrderByName(e) {
     e.preventDefault();
-    if(e.target.value !== 'ALFABET'){
-    dispatch(orderByName(e.target.value));
-    setCurrrentPage(1);
-    setOrden(`Ordenado ${e.target.value}`);
+    if (e.target.value !== "ALFABET") {
+      dispatch(orderByName(e.target.value));
+      setCurrrentPage(1);
+      setOrden(`Ordenado ${e.target.value}`);
     }
   }
   function handleOrderByWeight(e) {
@@ -73,8 +70,6 @@ export default function Home() {
     setCurrrentPage(1);
     setOrden(`Ordenado ${e.target.value}`);
   }
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
 
   return (
     <div>
@@ -85,7 +80,7 @@ export default function Home() {
           }}
           className="btnRefresh"
         >
-          <MdRefresh/>
+          <MdRefresh />
         </button>
         <select
           className="formSelect"
@@ -114,7 +109,9 @@ export default function Home() {
           }}
         >
           {types?.map((e) => (
-            <option value={e.name}>{e.name.replace(e.name.charAt(0), e.name.charAt(0).toUpperCase())}</option>
+            <option value={e.name}>
+              {e.name.replace(e.name.charAt(0), e.name.charAt(0).toUpperCase())}
+            </option>
           ))}
         </select>
 
@@ -128,30 +125,40 @@ export default function Home() {
           <option value="min">Min Weight</option>
         </select>
       </div>
-      
-        <div className='paginate'>
-          <Paginate
-            pokemonsPerPage={pokemonsPerPage}
-            allPokemons={allPokemons.length}
-            paginado={paginado}
-          />
-        </div>
-     
+
+      <div className="paginate">
+        <Paginate
+          pokemonsPerPage={pokemonsPerPage}
+          allPokemons={allPokemons.length}
+          paginado={paginado}
+        />
+      </div>
+
       <div className="listPokemon">
-        {isLoadingPokemons? (<ReactLoading className="spinner" type={"spinningBubbles"} color={'#ee9b00'}height={'10%'} width={'10%'} />) : (currentPokemons.map((e) => {
-          return (
-            <div className="card">
-              <Link to={`/home/${e.id} `} style={{ textDecoration: 'none' }}>
-                <Card
-                  name={e.name}
-                  imageCard={e.imageCard}
-                  types={e.types}
-                  key={e.id}
-                />
-              </Link>
-            </div>
-          );
-        }) )}
+        {isLoadingPokemons ? (
+          <ReactLoading
+            className="spinner"
+            type={"spinningBubbles"}
+            color={"#ee9b00"}
+            height={"10%"}
+            width={"10%"}
+          />
+        ) : (
+          currentPokemons.map((e) => {
+            return (
+              <div className="card">
+                <Link to={`/home/${e.id} `} style={{ textDecoration: "none" }}>
+                  <Card
+                    name={e.name}
+                    imageCard={e.imageCard}
+                    types={e.types}
+                    key={e.id}
+                  />
+                </Link>
+              </div>
+            );
+          })
+        )}
       </div>
     </div>
   );

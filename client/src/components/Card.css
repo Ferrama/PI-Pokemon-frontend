@@ -1,17 +1,17 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #dee2e6;
+  background-color: rgba(253, 254, 254 , 0.7);
   border-radius: 1rem;
   margin: 0.5rem 0.1rem;
   width: 162px;
   height: 200px;
-  opacity: 0.9;
+  
   display: flex;
 }
 .card:hover {
   opacity: 1;
-  box-shadow: 1px 1px #dee2e6, 1px 1px #dee2e6, 1px 1px #dee2e6;
+  box-shadow: 1px 1px #FDFEFE, 1px 1px #FDFEFE, 1px 1px #FDFEFE;
   -webkit-transform: translateX(-3px);
   transform: translateX(-3px);
 }
@@ -31,6 +31,7 @@
   color: black;
   padding: 0.2rem 0.5rem 0.2rem 0.5rem ;
   text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
 
 }
 
@@ -75,4 +76,84 @@ align-items: center;
 }
 .h3{
   margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+#grass{
+  background-color: #2ECC71 ;
+  opacity: 0.8;
+}
+#poison{
+  background-color: #6930c3;
+  opacity: 0.8;
+}
+#water{
+  background-color: #0077b6 ;
+  opacity: 0.8;
+}
+#bug{
+  background-color: #2a9d8f ;
+  opacity: 0.8;
+}
+#flying{
+  background-color: #4895ef ;
+  opacity: 0.8;
+}
+#normal{
+  background-color: #fefae0 ;
+  opacity: 0.8;
+}
+#rock{
+  background-color: #7f5539 ;
+  opacity: 0.8;
+}
+#fighting{
+  background-color: #fb8500 ;
+  opacity: 0.8;
+}#ghost{
+  background-color: #b5179e;
+  opacity: 0.8;
+}
+#steel{
+  background-color: #6c757d ;
+  opacity: 0.8;
+}
+#fire{
+  background-color: #e85d04;
+  opacity: 0.8;
+}
+#electric{
+  background-color: #ffb703;
+  opacity: 0.8;
+}
+#psychic{
+  background-color: #ff4d6d ;
+  opacity: 0.8;
+}
+#ice{
+  background-color: #4cc9f0 ;
+  opacity: 0.8;
+}
+#dragon{
+  background-color: #d00000 ;
+  opacity: 0.8;
+}
+#dark{
+  background-color: #edede9 ;
+  opacity: 0.8;
+}
+#fairy{
+  background-color: #ffc6ff ;
+  opacity: 0.8;
+}
+#unknown{
+  background-color: #edede9 ;
+  opacity: 0.8;
+}
+#shadow{
+  background-color: #2ECC71 ;
+  opacity: 0.8;
+}
+#ground{
+  background-color: #d5bdaf;
+  opacity: 0.8;
 }

@@ -4,17 +4,19 @@
   margin-top: 3rem;
 }
 .detailCard {
-  background-color: #f8f9fa;
+  
+  background-color: rgba(253, 254, 254 );
   width: 60%;
   display: inline-flex;
   justify-content: space-around;
   height: 450px;
   border: solid 4px #2b2d42;
   border-radius: 2rem;
-  
+  color: black;
   align-items: center;
   
   justify-items: center;
+  font-family: 'Mulish', sans-serif;
   
 }
 .image {
@@ -37,16 +39,18 @@
     
 }
 .midRight{
+  
     width: 50%;
     height: 100%;
-    
+    gap:0
 }
 .midSup{
   display: flex;
   justify-content: flex-end;
-  margin-top: 1rem;
-  padding-right: 1.8rem;
-  padding-top: 0.3rem;
+  align-items: flex-end;
+  padding-right: 2rem;
+  height: 10%;
+  
 }
 .btnBack{
   display: inline-block;
@@ -65,12 +69,15 @@
     padding: 0.175rem 0.5rem;
     font-size: 1rem;
     border-radius: 0.25rem;
+    font-family: 'IBM Plex Sans', sans-serif;
 
 }
 .midInf{
   display: flex;
   flex-direction: column;
-  margin-top: 5%;
+  height: 90%;
+  justify-content: space-around;
+  
 }
 .name{
   display: flex;
@@ -79,7 +86,9 @@
 }
 .stats{
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
 }
 .stat1{
   display: flex;
@@ -105,4 +114,91 @@
   color: black;
   padding: 0.2rem 0.5rem 0.2rem 0.5rem ;
   text-decoration: none;
+}
+#grass{
+  background-color: #2ECC71 ;
+  opacity: 0.8;
+}
+#poison{
+  background-color: #6930c3;
+  opacity: 0.8;
+}
+#water{
+  background-color: #0077b6 ;
+  opacity: 0.8;
+}
+#bug{
+  background-color: #2a9d8f ;
+  opacity: 0.8;
+}
+#flying{
+  background-color: #4895ef ;
+  opacity: 0.8;
+}
+#normal{
+  background-color: #fefae0 ;
+  opacity: 0.8;
+}
+#rock{
+  background-color: #7f5539 ;
+  opacity: 0.8;
+}
+#fighting{
+  background-color: #fb8500 ;
+  opacity: 0.8;
+}#ghost{
+  background-color: #b5179e;
+  opacity: 0.8;
+}
+#steel{
+  background-color: #6c757d ;
+  opacity: 0.8;
+}
+#fire{
+  background-color: #e85d04;
+  opacity: 0.8;
+}
+#electric{
+  background-color: #ffb703;
+  opacity: 0.8;
+}
+#psychic{
+  background-color: #ff4d6d ;
+  opacity: 0.8;
+}
+#ice{
+  background-color: #4cc9f0 ;
+  opacity: 0.8;
+}
+#dragon{
+  background-color: #d00000 ;
+  opacity: 0.8;
+}
+#dark{
+  background-color: #edede9 ;
+  opacity: 0.8;
+}
+#fairy{
+  background-color: #ffc6ff ;
+  opacity: 0.8;
+}
+#unknown{
+  background-color: #edede9 ;
+  opacity: 0.8;
+}
+#shadow{
+  background-color: #2ECC71 ;
+  opacity: 0.8;
+}
+#ground{
+  background-color: #d5bdaf;
+  opacity: 0.8;
+}
+
+.progress{
+  animation: load 1s normal forwards ;
+}
+@keyframes load {
+  0% { width: 0; }
+  100% {  }
 }

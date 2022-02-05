@@ -3,7 +3,7 @@ const inicialState = {
   allPokemons: [],
   types: [],
   detail: [],
-  isLoadingPokemons: true
+  isLoadingPokemons: true,
 };
 
 export default function rootReducer(state = inicialState, action) {
@@ -99,6 +99,16 @@ export default function rootReducer(state = inicialState, action) {
         detail: [action.payload],
        
       };
+      case "RESET_DETAIL":
+      const allPokemons4 = state.allPokemons;
+      const types1 = state.types;
+      return {
+        ...state,
+        detail: [],
+       pokemons : allPokemons4,
+       types:types1,
+      };
+      
       case "FILTER_BY_TYPE_SEARCH":
         
        const allPokemons3 = state.allPokemons;
