@@ -3,6 +3,7 @@ const inicialState = {
   allPokemons: [],
   types: [],
   detail: [],
+  isLoadingPokemons: true
 };
 
 export default function rootReducer(state = inicialState, action) {
@@ -12,6 +13,7 @@ export default function rootReducer(state = inicialState, action) {
         ...state,
         pokemons: action.payload,
         allPokemons: action.payload,
+        isLoadingPokemons: action.loading,
       };
 
     case "GET_POKEMONS_NAME":

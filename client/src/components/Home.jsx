@@ -13,12 +13,16 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginate from "./Paginate";
 import { MdRefresh } from "react-icons/md";
+import ReactLoading from 'react-loading';
 
 import "./Home.css";
 
+
+
 export default function Home() {
   const dispatch = useDispatch();
-  const allPokemons = useSelector((state) => state.pokemons); //me trae del reducer el estado pokemon
+  const allPokemons = useSelector((state) => state.pokemons); 
+  const isLoadingPokemons = useSelector((state) => state.isLoadingPokemons); 
   const [orden, setOrden] = useState(""); ///
   const [currentPage, setCurrrentPage] = useState(1);
   const [pokemonsPerPage, setpokemonsPerPage] = useState(12);
@@ -69,7 +73,8 @@ export default function Home() {
     setCurrrentPage(1);
     setOrden(`Ordenado ${e.target.value}`);
   }
-  
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
 
   return (
     <div>
@@ -133,7 +138,7 @@ export default function Home() {
         </div>
      
       <div className="listPokemon">
-        {currentPokemons?.map((e) => {
+        {isLoadingPokemons? (<ReactLoading className="spinner" type={"spinningBubbles"} color={'#ee9b00'}height={'10%'} width={'10%'} />) : (currentPokemons.map((e) => {
           return (
             <div className="card">
               <Link to={`/home/${e.id} `} style={{ textDecoration: 'none' }}>
@@ -146,7 +151,7 @@ export default function Home() {
               </Link>
             </div>
           );
-        })}
+        }) )}
       </div>
     </div>
   );
