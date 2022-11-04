@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -17,7 +17,7 @@ import ReactLoading from "react-loading";
 
 import "./Home.css";
 
-export default function Home() {
+const Home1 = () => {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.pokemons);
   const isLoadingPokemons = useSelector((state) => state.isLoadingPokemons);
@@ -32,7 +32,7 @@ export default function Home() {
   );
 
   useEffect(() => {
-    
+
     dispatch(getTypes());
   }, [dispatch]);
 
@@ -42,10 +42,10 @@ export default function Home() {
     setCurrrentPage(pageNumber);
   };
 
-  function handleClick(e) {
-    e.preventDefault();
-    dispatch(getPokemons());
-  }
+  // function handleClick(e) {
+  //   e.preventDefault();
+  //   dispatch(getPokemons());
+  // }
 
   function handleFilterStatus(e) {
     dispatch(filterPokemonByStatus(e.target.value));
@@ -75,9 +75,7 @@ export default function Home() {
     <div>
       <div className="filter">
         <button
-          onClick={(e) => {
-            handleClick(e);
-          }}
+          onClick={() => dispatch(getPokemons())}
           className="btnRefresh"
         >
           <MdRefresh />
@@ -108,8 +106,8 @@ export default function Home() {
             handleFilterType(e);
           }}
         >
-          {types?.map((e) => (
-            <option value={e.name}>
+          {types?.map((e, idx) => (
+            <option key={idx} value={e.name}>
               {e.name.replace(e.name.charAt(0), e.name.charAt(0).toUpperCase())}
             </option>
           ))}
@@ -146,7 +144,7 @@ export default function Home() {
         ) : (
           currentPokemons.map((e) => {
             return (
-              <div className="card">
+              <div key={e.id} className="card">
                 <Link to={`/home/${e.id} `} style={{ textDecoration: "none" }}>
                   <Card
                     name={e.name}
@@ -163,3 +161,5 @@ export default function Home() {
     </div>
   );
 }
+const Home = memo(Home1)
+export default Home

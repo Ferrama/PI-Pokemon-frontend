@@ -2,26 +2,11 @@ const axios = require("axios");
 const { Pokemons, Types } = require("../db");
 
 const getApiInfo = async () => {
-  const apiUrl = await axios.get("https://pokeapi.co/api/v2/pokemon");
+  const apiUrl = await axios.get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=120");
   const apiInfo = await apiUrl.data.results.map((e) => e.url);
-  const apiUrlNext1 = await axios.get(apiUrl.data.next);
-  const apiUrlNextInfo1 = await apiUrlNext1.data.results.map((e) => e.url);
-  const apiUrlNext2 = await axios.get(apiUrlNext1.data.next);
-  const apiUrlNextInfo2 = await apiUrlNext2.data.results.map((e) => e.url);
-  const apiUrlNext3 = await axios.get(apiUrlNext2.data.next);
-  const apiUrlNextInfo3 = await apiUrlNext3.data.results.map((e) => e.url);
-  const apiUrlNext4 = await axios.get(apiUrlNext3.data.next);
-  const apiUrlNextInfo4 = await apiUrlNext4.data.results.map((e) => e.url);
-  const apiUrlNext5 = await axios.get(apiUrlNext4.data.next);
-  const apiUrlNextInfo5 = await apiUrlNext5.data.results.map((e) => e.url);
 
   const arrayLinksPokemons = [
     ...apiInfo,
-    ...apiUrlNextInfo1,
-    ...apiUrlNextInfo2,
-    ...apiUrlNextInfo3,
-    ...apiUrlNextInfo4,
-    ...apiUrlNextInfo5,
   ];
 
   const arrayAxiosPokemon = arrayLinksPokemons.map((e) => axios.get(e)); // array de promesas
@@ -35,7 +20,7 @@ const getApiInfo = async () => {
       types: e.data.types.map((e) => e.type.name),
       imageCard:
         e.data.sprites.versions["generation-v"]["black-white"].animated[
-          "front_default"
+        "front_default"
         ],
       imageDetail: e.data.sprites.other["dream_world"]["front_default"],
       baseExp: e.data["base_experience"],
@@ -97,7 +82,7 @@ const getPokemonId = async (id) => {
     types: pokemonFilter.types.map((e) => e.type.name),
     imageCard:
       pokemonFilter.sprites.versions["generation-v"]["black-white"].animated[
-        "front_default"
+      "front_default"
       ],
     imageDetail: pokemonFilter.sprites.other["dream_world"]["front_default"],
     baseExp: pokemonFilter["base_experience"],
@@ -160,7 +145,7 @@ const getPokemonName = async (name) => {
     types: pokemonFilter.types.map((e) => e.type.name),
     imageCard:
       pokemonFilter.sprites.versions["generation-v"]["black-white"].animated[
-        "front_default"
+      "front_default"
       ],
     imageDetail: pokemonFilter.sprites.other["dream_world"]["front_default"],
     baseExp: pokemonFilter["base_experience"],
@@ -182,7 +167,7 @@ const getDbInfoName = async (name) => {
     },
   });
 
-  let pokemonDbFilter = pokemonDb?.filter(
+  const pokemonDbFilter = pokemonDb && pokemonDb.filter(
     (e) => e.dataValues.name === `${name}`
   );
 
