@@ -9,7 +9,7 @@ export function getPokemons() {
       loading: true,
     });
 
-    var json = await axios.get("http://localhost:3001/pokemons");
+    var json = await axios.get(`${process.env.API}/pokemons`);
 
     return dispatch({
       type: "GET_POKEMONS",

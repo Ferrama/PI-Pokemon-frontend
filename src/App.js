@@ -6,6 +6,7 @@ import React,{Fragment} from "react";
 import PokemonCreate from "./components/PokemonCreate";
 import Detail from "./components/Detail";
 import Nav from "./components/Nav";
+require('dotenv').config()
 function App() {
   return (
     <Fragment>
