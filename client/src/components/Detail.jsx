@@ -10,7 +10,7 @@ export default function Detail() {
   let pokemon = useSelector((state) => state.detail);
   useEffect(() => {
     dispatch(getDetail(id));
-  }, []);
+  }, [dispatch, id]);
    
  function clearDetail(){
    dispatch (resetDetail())

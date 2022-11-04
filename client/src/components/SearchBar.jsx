@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getPokemonName, filterPokemonByTypesSearch } from '../actions';
+import { getPokemonName } from '../actions';
 import "./SearchBar.css"
 
 export default function SearchBar() {
