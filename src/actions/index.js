@@ -9,7 +9,7 @@ export function getPokemons() {
       loading: true,
     });
 
-    var json = await axios.get(`${process.env.API}/pokemons`);
+    var json = await axios.get(`https://poke-api-gtt2.onrender.com/pokemons`);
 
     return dispatch({
       type: "GET_POKEMONS",
@@ -23,7 +23,7 @@ export function getPokemonName(name) {
 
     try {
 
-      var json = await axios.get(`http://localhost:3001/pokemons?name=${name}`);
+      var json = await axios.get(`https://poke-api-gtt2.onrender.com/pokemons?name=${name}`);
       return dispatch({
         type: "GET_POKEMONS_NAME",
         payload: json.data,
@@ -66,7 +66,7 @@ export function orderByWeight(payload) {
 }
 export function getTypes(name) {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/types`);
+    var json = await axios.get(`https://poke-api-gtt2.onrender.com/types`);
     return dispatch({
       type: "GET_TYPES",
       payload: json.data,
@@ -75,14 +75,14 @@ export function getTypes(name) {
 }
 export function postPokemon(payload) {
   return async function (dispatch) {
-    var json = await axios.post(`http://localhost:3001/pokemons`, payload);
+    var json = await axios.post(`https://poke-api-gtt2.onrender.com/pokemons`, payload);
     return json;
   };
 }
 export function getDetail(id) {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`http://localhost:3001/pokemons/${id}`);
+      var json = await axios.get(`https://poke-api-gtt2.onrender.com/pokemons/${id}`);
       return dispatch({
         type: "GET_DETAILS",
         payload: json.data,
