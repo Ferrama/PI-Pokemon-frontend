@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { postPokemon, } from "../actions";
+import { getPokemons, postPokemon, } from "../actions";
 import "./PokemonCreate.css";
 
 function validate(input) {
@@ -32,7 +32,7 @@ function buttonHab(p) {
 
 export default function PokemonCreate(props) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const types = useSelector((state) => state.types);
   const [errors, setErrors] = useState([{
     name: "Required name",
@@ -107,6 +107,7 @@ export default function PokemonCreate(props) {
       defense: "",
       speed: "",
     });
+    dispatch(getPokemons())
     //setTimeout(navigate("/home") , 2000);
   }
   function handleDelete(e) {

@@ -42,10 +42,6 @@ const Home1 = () => {
     setCurrrentPage(pageNumber);
   };
 
-  // function handleClick(e) {
-  //   e.preventDefault();
-  //   dispatch(getPokemons());
-  // }
 
   function handleFilterStatus(e) {
     dispatch(filterPokemonByStatus(e.target.value));
