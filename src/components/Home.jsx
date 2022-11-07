@@ -82,7 +82,7 @@ const Home1 = () => {
             handleOrderByName(e);
           }}
         >
-          <option >ALFABET</option>
+          <option >Alphabet</option>
           <option value="asc">A-Z</option>
           <option value="desc">Z-A</option>
         </select>
@@ -93,7 +93,7 @@ const Home1 = () => {
           }}
         >
           <option value="all">All</option>
-          <option value="exist">Existed</option>
+          <option value="exist">Existing</option>
           <option value="created">Created</option>
         </select>
         <select

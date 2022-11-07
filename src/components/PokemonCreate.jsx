@@ -207,7 +207,7 @@ export default function PokemonCreate(props) {
                   </div>
                   <div id='controled'>
                     <div>
-                      <label className="labelForm">Base Expirence:</label>
+                      <label className="labelForm">Base Experience:</label>
                       <input
                       className="inputForm"
                         type="number"
